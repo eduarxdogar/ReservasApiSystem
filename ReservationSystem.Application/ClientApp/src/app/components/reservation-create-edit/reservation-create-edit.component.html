@@ -1,0 +1,27 @@
+<app-page-header title="{{'reservation_create'|transloco}}" goToUrl="/reservations"
+    goToLabel="{{'reservation_list'|transloco}}"></app-page-header>
+
+<div class="container">
+    <form id="reservation-form" (ngSubmit)="onSubmit()" [formGroup]="formGroup">
+        <app-contact-form [checkInputs]="checkInputs"></app-contact-form>
+
+        <app-text-editor></app-text-editor>
+
+        <div style="position: relative;">
+            <i class="calendar-icon"></i>
+            <input id="reservation-date" type="{{dateInputType}}" (click)="dateInputType='date'"
+                placeholder="{{ 'reservation_date' | transloco }}" min="{{today | date:'yyyy-MM-dd'}}"
+                name="reservationDate" formControlName="reservationDate"
+                [class.invalid-input]="!reservationDateControl.valid && checkInputs" />
+            <div *ngIf="!reservationDateControl.valid && checkInputs">
+                <p *ngIf="reservationDateControl.hasError('required')" class="validation-msg">
+                    {{ 'field_required' | transloco }}
+                </p>
+            </div>
+        </div>
+
+        <div id="actions">
+            <input type="submit" value="{{'send'|transloco}}" class="btn btn-red" />
+        </div>
+    </form>
+</div>

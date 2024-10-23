@@ -1,0 +1,71 @@
+<div id="info">
+    <p id="search-contact" *ngIf="searchingContact">
+        <mat-spinner color="white" diameter="20"></mat-spinner>
+        {{'contact_search'|transloco}}
+    </p>    
+</div>
+<div id="contact-inputs" [formGroup]="formGroup">
+    <div>
+        <div>
+            <i class="material-icons">contacts</i>
+            <input type="text" name="name"
+            placeholder="{{'contact_name'|transloco}}"                   
+            formControlName="name"
+            [class.invalid-input]="!nameControl.valid && checkInputs"
+            (keyup)="searchExistingContact()">
+        </div>
+        <div *ngIf="!nameControl.valid && checkInputs">
+            <p *ngIf="nameControl.hasError('required')" class="validation-msg">
+                {{ 'field_required' | transloco }}
+            </p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <i class="material-icons">location_on</i>
+            <select name="contactTypeId" 
+            formControlName="contactTypeId"
+            [class.invalid-input]="!contactTypeIdControl.valid && checkInputs"
+            >
+                <option value="" selected hidden>{{'contact_type'|transloco}}</option>
+                <option *ngFor="let type of contactTypes" [value]="type.id">{{type.name}}</option>
+            </select>
+        </div>
+        <div *ngIf="!contactTypeIdControl.valid && checkInputs">
+            <p *ngIf="contactTypeIdControl.hasError('required')" class="validation-msg">
+                {{ 'field_required' | transloco }}
+            </p>
+        </div>
+    </div>
+    <div>
+        <div>
+            <i class="material-icons">phone</i>
+            <input type="tel"  name="phone"
+            placeholder="{{'contact_phone'|transloco}}"
+            formControlName="phone"
+            [class.invalid-input]="!phoneControl.valid && checkInputs"
+            (keypress)="phoneKeyPress($event)" >
+        </div>
+        <div *ngIf="!phoneControl.valid && checkInputs">
+            <p *ngIf="phoneControl.hasError('pattern')" class="validation-msg">
+                {{ 'invalid_phone' | transloco }}
+            </p>
+        </div>
+    </div>
+    <div class="date-container">
+        <div style="position: relative;">
+            <i class="calendar-icon"></i>
+            <input type="{{dateInputType}}" (click)="dateInputType='date'" 
+            formControlName="birthDate"
+            [class.invalid-input]="!birthDateControl.valid && checkInputs"
+            placeholder="{{'contact_birth'|transloco}}" 
+            name="birthDate" 
+            max="{{today | date:'yyyy-MM-dd'}}">
+        </div>
+        <div *ngIf="!birthDateControl.valid && checkInputs">
+            <p *ngIf="birthDateControl.hasError('required')" class="validation-msg">
+                {{ 'field_required' | transloco }}
+            </p>
+        </div>
+    </div>
+</div>

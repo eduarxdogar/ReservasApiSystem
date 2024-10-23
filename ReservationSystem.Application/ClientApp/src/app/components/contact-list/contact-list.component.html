@@ -1,0 +1,48 @@
+<app-page-header title="{{'contact_list'|transloco}}" goToUrl="/contacts/create" goToLabel="{{'contact_create'|transloco}}"></app-page-header>
+
+<div class="container">
+    <table>
+        <div id="contact-thead">
+            <tr class="row">
+                <th class="cell" (click)="sortContactsBy('nameSortable')">
+                    {{'contact_name_short'|transloco}}
+                    <div *ngIf="sortField==='nameSortable'">
+                        <i *ngIf="!sortAscending" class="material-icons is-favorite">arrow_downward</i>
+                        <i *ngIf="sortAscending" class="material-icons is-favorite">arrow_upward</i>
+                    </div>
+                </th>
+                <th class="cell type-col" (click)="sortContactsBy('contactTypeNameSortable')">
+                    {{'contact_type'|transloco}}
+                    <div *ngIf="sortField==='contactTypeNameSortable'">
+                        <i *ngIf="!sortAscending" class="material-icons is-favorite">arrow_downward</i>
+                        <i *ngIf="sortAscending" class="material-icons is-favorite">arrow_upward</i>
+                    </div>
+                </th>
+                <th class="cell phone-col" (click)="sortContactsBy('phone')">
+                    {{'contact_phone'|transloco}}
+                    <div *ngIf="sortField==='phone'">
+                        <i *ngIf="!sortAscending" class="material-icons is-favorite">arrow_downward</i>
+                        <i *ngIf="sortAscending" class="material-icons is-favorite">arrow_upward</i>
+                    </div>
+                </th>
+                <th class="cell date-col" (click)="sortContactsBy('birthDate')">
+                    {{'contact_birth'|transloco}}
+                    <div *ngIf="sortField==='birthDate'">
+                        <i *ngIf="!sortAscending" class="material-icons is-favorite">arrow_downward</i>
+                        <i *ngIf="sortAscending" class="material-icons is-favorite">arrow_upward</i>
+                    </div>
+                </th>
+                <th class="cell actions-col">
+                    {{'actions'|transloco}}
+                </th>
+            </tr>
+        </div>
+        <app-contact-item *ngFor="let contact of contacts
+        | sort: sortDirection : sortField
+        | paginate: { itemsPerPage: 8, currentPage: currentPage }" [contact]="contact"
+            (onDeleteContact)="deleteContact(contact)"></app-contact-item>
+    </table>
+
+    <pagination-controls class="app-pagination" (pageChange)="currentPage = $event" previousLabel="" nextLabel="">
+    </pagination-controls>
+</div>

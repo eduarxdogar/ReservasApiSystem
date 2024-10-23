@@ -1,0 +1,39 @@
+<div id="banner">
+    <div id="banner-container" class="container">
+        <div id="company-name" routerLink="/"><p><strong>ISU</strong>Corp</p></div>
+        <div id="company-description">
+            <p routerLink="/">{{'company_description'|transloco}}</p>
+        </div>
+        <div id="banner-nav">
+            <div [class.link-current-section]="url=='/reservations'
+            ||url=='/reservations/create'||url=='/'">
+                <p *ngIf="url!='/'&&url!='/reservations'" 
+                routerLink="/reservations">
+                    {{'reservation_list'|transloco}}
+                </p>
+                <p *ngIf="url=='/reservations'" 
+                routerLink="/reservations/create">
+                    {{'reservation_create'|transloco}}
+                </p>
+            </div>
+            <br>
+            <div [class.link-current-section]="url=='/contacts'
+            ||url=='contacts/create'">
+                <p *ngIf="url!='/contacts'" 
+                routerLink="/contacts">
+                    {{'contact_list'|transloco}}
+                </p>
+                <p *ngIf="url=='/contacts'" 
+                routerLink="/contacts/create">
+                    {{'contact_create'|transloco}}
+                </p>
+            </div>
+        </div>  
+        <select id="select-language" [ngModel]="activeLang" (ngModelChange)="changeLang($event)">
+            <option value="es">Español</option>
+            <option value="en">English</option>
+        </select>       
+    </div>
+</div>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,30 @@
+<app-page-header 
+title="{{'reservation_list'|transloco}}" 
+goToUrl="/reservations/create" 
+goToLabel="{{'reservation_create'|transloco}}"
+></app-page-header>
+
+<div class="container">
+    <div id="sort-reservations">
+        <i class="material-icons">sort</i>
+        <select [ngModel]="sortOptions" (ngModelChange)="sortReservations($event)">
+            <option value="" hidden>{{'sort_by'|transloco}}</option>
+            <option value="asc-date">{{'sort_by_date_ascending'|transloco}}</option>
+            <option value="desc-date">{{'sort_by_date_descending'|transloco}}</option>
+            <option value="asc-contactNameSortable">{{'sort_by_alphabetic_ascending'|transloco}}</option>
+            <option value="desc-contactNameSortable">{{'sort_by_alphabetic_descending'|transloco}}</option>
+            <option value="desc-ranking">{{'sort_by_ranking'|transloco}}</option> 
+        </select>
+    </div>
+
+    <table>
+        <app-reservation-item *ngFor="let reservation of reservations
+        | sort: sortDirection : sortField
+        | paginate: { itemsPerPage: 8, currentPage: currentPage }" [reservation]="reservation"></app-reservation-item>
+    </table>
+
+    <p *ngIf="reservations.length==0">{{'reservation_list_empty'|transloco}}</p>
+
+    <pagination-controls class="app-pagination" (pageChange)="currentPage = $event" previousLabel="" nextLabel="">
+    </pagination-controls>
+</div>

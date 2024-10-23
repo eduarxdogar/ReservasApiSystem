@@ -1,0 +1,33 @@
+#reservation-form{
+    display: flex;
+    flex-direction: column;
+    background-color: lightgray;
+}
+#reservation-date
+{
+    padding: 10px 0 10px 30px;
+    margin-top: 10px;
+    width: 170px;
+}
+.calendar-icon{ 
+    position: absolute;
+    width: 24px;
+    height: 24px; 
+    left: 0; 
+    margin-left: 2px;
+    top: 0;
+    margin-top: 19px;
+    background: url('/dist/assets/images/calendar.png') no-repeat;
+}
+
+/*Mobile*/
+@media (max-width:480px) {
+    #actions input[type="submit"],
+    #reservation-date
+    {
+        width: 100%;
+    }
+    #actions input[type="submit"]{
+        margin-top: 10px;
+    }
+}

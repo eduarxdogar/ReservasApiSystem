@@ -1,0 +1,26 @@
+.container{
+    padding: 10px 20px 12px 20px;
+}
+/*Sorting*/
+#sort-reservations>select{
+    padding: 5px 0 5px 24px;
+}
+#sort-reservations .material-icons{
+    position: absolute;
+    padding-top: 4px;
+    padding-left: 2px;
+    color: gray;
+}
+
+/*Pagination*/
+.app-pagination ::ng-deep .ngx-pagination li {
+    background: rgb(173, 168, 168);
+    border-radius: 4px;
+}
+.app-pagination ::ng-deep .ngx-pagination .current {
+    background: rgb(88, 83, 83);
+}
+.app-pagination{
+    margin-top: 100px;
+}
+

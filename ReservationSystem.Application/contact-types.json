@@ -1,0 +1,13 @@
+{
+  "contactTypes": [
+    {
+      "name": "Contact Type 1"
+    },
+    {
+      "name": "Contact Type 2"
+    },
+    {
+      "name": "Contact Type 3"
+    }
+  ]
+}

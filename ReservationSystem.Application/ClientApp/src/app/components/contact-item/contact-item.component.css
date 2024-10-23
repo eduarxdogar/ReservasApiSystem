@@ -1,0 +1,11 @@
+.actions-col{
+    width: 31%;
+}
+@media (max-width:480px) {
+    .type-col,.phone-col,.date-col{
+        display: none;
+    }
+    .actions-col{
+        width: 66%;
+    }
+}

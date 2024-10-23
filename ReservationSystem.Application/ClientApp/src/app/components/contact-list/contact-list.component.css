@@ -1,0 +1,43 @@
+.container{
+    padding: 10px 20px 12px 20px;
+}
+/*Table sorting*/
+#contact-thead>tr{
+    height: 40px;
+}
+#contact-thead th{
+    cursor: pointer;
+    display: flex;
+}
+.actions-col{
+    justify-content: right;
+    padding-right: 10px;
+    width: 31%;
+}
+#contact-thead .material-icons{
+    font-size: 18px;
+}
+
+/*Pagination*/
+.app-pagination ::ng-deep .ngx-pagination li {
+    background: rgb(173, 168, 168);
+    border-radius: 4px;
+}
+.app-pagination ::ng-deep .ngx-pagination .current {
+    background: rgb(88, 83, 83);
+}
+.app-pagination{
+    margin-top: 100px;
+}
+
+/*Mobile*/
+@media (max-width:480px) {
+    #contact-thead .type-col,
+    #contact-thead .phone-col,
+    #contact-thead .date-col{
+        display: none;
+    }
+    .actions-col{
+        width: 66%;
+    }
+}

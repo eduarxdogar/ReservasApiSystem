@@ -1,0 +1,26 @@
+.reservation-date{
+    font-size: 12px;
+}
+.favorite{
+    display: flex;
+}
+.favorite-btn{
+    cursor: pointer;
+    margin-left: 4px;
+}
+p.is-favorite{
+    color: gray;
+}
+i.is-favorite{
+    color: red;
+}
+/*Mobile*/
+@media (max-width:480px) {
+    .ranking,
+    .favorite p{
+        display: none;
+    }
+    .cell.main{
+        flex-grow: 2;
+    }
+}

@@ -1,0 +1,31 @@
+<tr class="row">
+    <td class="cell main">
+        <p>{{(reservation.contact)&&reservation.contact.name}}</p>
+        <!-- <p class="reservation-date">{{reservation.date|date:'EEEE MMMM d hh:mm a'}}</p> -->
+        <p class="reservation-date">{{reservation.date|dateTranslated:activeLang}}</p>
+    </td>
+    <td class="cell ranking">
+        <p>Ranking</p>
+        <div style="display: flex;">
+            <ngx-stars [readonly]="false" 
+            [size]="1" [initialStars]="reservation.ranking||0"        
+            (ratingOutput)="rateReservation($event)"
+            [color]="'#fab025'">
+            </ngx-stars>
+            <mat-spinner color="'#fab025'" diameter="20"
+            *ngIf="rankingLoader"></mat-spinner>
+        </div>
+    </td>
+    <td class="cell favorite">
+        <p [class.is-favorite]="reservation.favorite">{{'add_favorites'|transloco}}</p>
+        <div class="favorite-btn" (click)="setFavorite()">
+            <i *ngIf="reservation.favorite" class="material-icons is-favorite">favorite</i>
+            <i *ngIf="!reservation.favorite" class="material-icons">favorite_border</i>
+        </div>
+    </td>
+    <td class="cell">
+        <div class="cell-btns">
+            <button class="btn btn-gray" [routerLink]="['../reservations/edit',reservation.id]">{{'edit'|transloco|uppercase}}</button>
+        </div>
+    </td>
+</tr>

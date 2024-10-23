@@ -1,0 +1,139 @@
+/*Text Editor*/
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-icons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-inputs/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-lists/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-richtexteditor/styles/material.css';
+
+/*Material Icons*/
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    /* src: url(iconfont/MaterialIcons-Regular.eot); For IE6-8 */
+    src: local('Material Icons'),
+         local('MaterialIcons-Regular'),
+         url(assets/font/MaterialIcons-Regular.ttf) format('ttf'),
+         url(assets/font/MaterialIcons-Regular.woff2) format('woff2');
+ }
+ 
+ .material-icons {
+   font-family: 'Material Icons';
+   font-weight: normal;
+   font-style: normal;
+   font-size: 24px;  /* Preferred icon size */
+   display: inline-block;
+   line-height: 1;
+   text-transform: none;
+   letter-spacing: normal;
+   word-wrap: normal;
+   white-space: nowrap;
+   direction: ltr;
+ 
+   /* Support for all WebKit browsers. */
+   -webkit-font-smoothing: antialiased;
+   /* Support for Safari and Chrome. */
+   text-rendering: optimizeLegibility;
+ 
+   /* Support for Firefox. */
+   -moz-osx-font-smoothing: grayscale;
+ 
+   /* Support for IE. */
+   font-feature-settings: 'liga';
+ }
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;   
+    font-family: system-ui;
+}
+html, body { height: 100%; }
+body{
+    background-color: lightgray;
+}
+
+.container{
+    max-width: 70%;
+    margin: auto;
+    background-color: white;
+}
+@media (max-width:480px) {
+    .container{
+        max-width: 95%;
+    }
+}
+/*Buttons*/
+.btn{
+    border: 0;
+    margin: 4px 2px;
+    height: 40px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+input.btn{
+    float: right;
+}
+.btn.btn-gray{
+    background-color: darkgray;
+}
+.btn.btn-red{
+    background-color: red;
+}
+
+/*Reservation and Contact Lists*/
+table{
+    width: 100%;
+    table-layout: fixed;
+}
+td{
+    width: 25%;
+}
+.row{
+    background-color: lightgray;
+    margin: 5px 0 5px 0;
+    display: flex;
+}
+.cell{
+    margin: auto;
+    flex-grow: 1;
+    text-align: left;
+    width: 25%;
+    padding: 0 10px 0 10px;
+}
+.cell-btns{
+    float: right;
+    padding-right: 0;
+}
+
+/*Input validation*/
+.invalid-input{
+    border: 1px solid red;
+}
+.validation-msg{
+    color: red;
+    font-size: 12px;
+    white-space: pre-wrap;
+}
+
+input[type="date"]{
+    position: relative;   
+} 
+input[type="date"]::-webkit-calendar-picker-indicator{ 
+    position: absolute;
+    width: 24px;
+    height: 24px; 
+    left: 0; 
+    margin-left: 0;
+    top: 0;
+    margin-top: 8px;
+    background: url('/dist/assets/images/calendar.png') no-repeat;
+}
+input::-webkit-datetime-edit { position: relative; left: 0; }
+input::-webkit-datetime-edit-fields-wrapper { position: relative; left: 0; }
